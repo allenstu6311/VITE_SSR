@@ -2,7 +2,12 @@ import readline from "readline";
 import { render } from "./dist/server/entry-server.js";
 import fs from "fs";
 import path from "path";
+import { routes } from "./src/router/routes.js";
 
+/**
+ * 生成檔案
+ * @param {String} pathVal 路徑(ex:/about,/test...)
+ */
 async function createFile(pathVal) {
   const template = fs.readFileSync(
     path.resolve("dist/client/index.html"),
@@ -17,15 +22,22 @@ async function createFile(pathVal) {
 
   const outputPath = `dist/ssg${pathVal}`;
 
-  const filePath = path.join(outputPath, `${pathVal.substring(1)}.html`);
+  // 生成檔案名稱
+  const filePath = path.join(
+    outputPath,
+    `${pathVal.substring(1) || "index"}.html`
+  );
 
+  // 創建ssg資料夾
   if (!fs.existsSync(outputPath)) {
     fs.mkdirSync(outputPath, { recursive: true });
   }
 
+  // 寫入內容
   fs.writeFileSync(filePath, responseHtml);
 }
 
+// 創建readline實體
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -40,6 +52,9 @@ services.forEach((service, index) => {
 rl.question("請選擇操作 (1 或 2):", (answer) => {
   const choice = parseInt(answer);
   if (choice === 1) {
+    for (let i = 0; i < routes.length; i++) {
+      createFile(routes[i].path);
+    }
     rl.close();
   } else {
     rl.question("請輸入路徑名稱:", (pathVal) => {
