@@ -1,3 +1,6 @@
+/**
+ * FD SSR DEV
+ */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,9 +28,10 @@ async function createServer() {
   // 即使在重新启动后，以下内容仍然有效。
   app.use(vite.middlewares);
 
-  app.use("*", async (req, res, next) => {
+  app.get("*", async (req, res, next) => {
     const url = req.originalUrl;
-
+    // console.log('url',url);
+    
     try {
       // 1. 读取 index.html
       let template = fs.readFileSync(
@@ -39,7 +43,8 @@ async function createServer() {
       //    同时也会从 Vite 插件应用 HTML 转换。
       //    例如：@vitejs/plugin-react 中的 global preambles
       template = await vite.transformIndexHtml(url, template);
-
+      // console.log('template',template);
+      
       // 3. 加载服务器入口。vite.ssrLoadModule 将自动转换
       //    你的 ESM 源码使之可以在 Node.js 中运行！无需打包
       //    并提供类似 HMR 的根据情况随时失效。
@@ -49,9 +54,12 @@ async function createServer() {
       //    函数调用了适当的 SSR 框架 API。
       //    例如 ReactDOMServer.renderToString()
       const appHtml = await render(url);
-
+      // console.log('appHtml',appHtml);
+      
       // 5. 注入渲染后的应用程序 HTML 到模板中。
-      const html = template.replace(`<!--ssr-outlet-->`, appHtml);
+      const html = template.replace(`<!--ssr-outlet-->`, appHtml.html);
+      // console.log('html',html);
+      
 
       // 6. 返回渲染后的 HTML。
       res.status(200).set({ "Content-Type": "text/html" }).end(html);

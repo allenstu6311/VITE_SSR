@@ -1,5 +1,6 @@
 // import { createApp } from 'vue'
 import "./style.css";
+import createSSRRouter from "./router";
 // import App from './App.vue'
 
 // createApp(App).mount('#app')
@@ -12,5 +13,7 @@ import App from "./App.vue";
 // fresh store here.
 export function createApp() {
   const app = createSSRApp(App);
-  return { app };
+  const router = createSSRRouter();
+  app.use(router)
+  return { app,router };
 }
