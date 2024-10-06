@@ -1,3 +1,6 @@
+/**
+ * 路由都需加入name來讓componentMap配對組件
+ */
 export const routes = [
   { path: "/", name: "home" },
   { path: "/about", name: "about" },

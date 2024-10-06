@@ -16,8 +16,6 @@ const routes = baseRoutes.map((route) => {
   };
 });
 
-console.log("routes", routes);
-
 // 使用工廠函數來創建 Router 實例
 export function createSSRRouter() {
   return createRouter({

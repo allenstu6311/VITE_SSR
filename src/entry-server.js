@@ -4,6 +4,7 @@ import { createApp } from "./main";
 export async function render(req) {
   const { app, router } = createApp();
 
+  // 有name代表是route的配置，才須返回完整的html
   const name = router.resolve(req).name;
   if (name) {
     router.push(req); // 请求 url
