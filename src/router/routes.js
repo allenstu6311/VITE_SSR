@@ -10,15 +10,15 @@ export const routes = [
     ssg: false,
     children: [
       {
-        path: "/ex",
+        path: "ex",
         name: "ex",
       },
       {
-        path: "/co",
+        path: "co",
         name: "co",
       },
       {
-        path: "/otc",
+        path: "otc",
         name: "otc",
       },
     ],
