@@ -15,7 +15,7 @@ npm run dev:ssr
 
 npm run dev
 
-# SSR TEST DIST
+# SSR TEST
 
 node ssr
 
