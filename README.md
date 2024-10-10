@@ -4,7 +4,7 @@ https://github.com/bluwy/create-vite-extra
 
 # SSR BUILD
 
-npm run build:client
+npm run build:client <br>
 npm run build:server
 
 # SSR DEV
