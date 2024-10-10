@@ -1,12 +1,24 @@
-#參考網站
+# 參考網站
+
 https://github.com/bluwy/create-vite-extra
 
-#SSR BUILD
-build:client
-build:server
+# SSR BUILD
 
-#SSR TEST DIST
+npm run build:client
+npm run build:server
+
+# SSR DEV
+
+npm run dev:ssr
+
+# SPA DEV
+
+npm run dev
+
+# SSR TEST DIST
+
 node ssr
 
-#SSF
+# SSG
+
 node ssg

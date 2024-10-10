@@ -1,13 +1,14 @@
 /**
- * 路由都需加入name來讓componentMap配對組件
+ * 需要在componentMap註冊組件
  */
 export const routes = [
   { path: "/", name: "home" },
   { path: "/about", name: "about" },
+  { path: "/project", name: "project" },
   {
     path: "/trade",
     name: "trade",
-    ssg: false,
+    // ssg: false,
     children: [
       {
         path: "ex",
@@ -22,5 +23,9 @@ export const routes = [
         name: "otc",
       },
     ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
   },
 ];

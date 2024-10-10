@@ -31,7 +31,7 @@ async function createServer() {
   app.get("*", async (req, res, next) => {
     const url = req.originalUrl;
     // console.log('url',url);
-    
+
     try {
       // 1. 读取 index.html
       let template = fs.readFileSync(
@@ -44,7 +44,7 @@ async function createServer() {
       //    例如：@vitejs/plugin-react 中的 global preambles
       template = await vite.transformIndexHtml(url, template);
       // console.log('template',template);
-      
+
       // 3. 加载服务器入口。vite.ssrLoadModule 将自动转换
       //    你的 ESM 源码使之可以在 Node.js 中运行！无需打包
       //    并提供类似 HMR 的根据情况随时失效。
@@ -55,11 +55,9 @@ async function createServer() {
       //    例如 ReactDOMServer.renderToString()
       const appHtml = await render(url);
       // console.log('appHtml',appHtml);
-      
+
       // 5. 注入渲染后的应用程序 HTML 到模板中。
       const html = template.replace(`<!--ssr-outlet-->`, appHtml.html);
-      // console.log('html',html);
-      
 
       // 6. 返回渲染后的 HTML。
       res.status(200).set({ "Content-Type": "text/html" }).end(html);

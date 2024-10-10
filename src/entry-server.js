@@ -2,16 +2,19 @@ import { renderToString } from "vue/server-renderer";
 import { createApp } from "./main";
 
 export async function render(req) {
+  console.log("req", req);
+
   const { app, router } = createApp();
 
-  // 有name代表是route的配置，才須返回完整的html
-  const name = router.resolve(req).name;
-  if (name) {
-    router.push(req); // 请求 url
-    await router.isReady();
-  } else {
-    return { html: null };
-  }
+  // if (req.indexOf(".") === -1) {
+  //   router.push(req); // 请求 url
+  //   await router.isReady();
+  // } else {
+  //   // 有.代表是資源存取不須返回HTML
+  //   return { html: null };
+  // }
+  router.push(req); // 请求 url
+  await router.isReady();
 
   const ctx = {};
   const html = await renderToString(app, ctx);

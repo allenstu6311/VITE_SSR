@@ -2,14 +2,12 @@
 import CHeader from "./components/CHeader.vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import { onMounted } from "vue";
-
-
 </script>
 
 <template>
   <CHeader />
   <router-view></router-view>
-  <img src="/vite.svg" alt="">
+  <img src="/vite.svg" alt="" />
 </template>
 
 <style scoped>
