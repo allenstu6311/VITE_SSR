@@ -26,6 +26,7 @@ export const routes = [
   },
   {
     path: "/:pathMatch(.*)*",
+    ssg: false,
     name: "404",
   },
 ];

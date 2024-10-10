@@ -11,6 +11,9 @@ const app = express();
 // http請求到/assets時會走到後面的路徑
 app.use("/assets", express.static(path.resolve("dist/client/assets")));
 
+// public资源处理
+app.get(/\..+$/, express.static(path.resolve("dist/client")));
+
 app.get("*", async (req, res, next) => {
   try {
     // SSG
@@ -18,12 +21,6 @@ app.get("*", async (req, res, next) => {
     if (fs.existsSync(hasSsgField)) {
       console.log("ssg");
       return res.sendFile(hasSsgField);
-    }
-
-    // public
-    if (req.url.indexOf(".") > -1) {
-      console.log("public");
-      return next();
     }
 
     // SSR
@@ -40,9 +37,6 @@ app.get("*", async (req, res, next) => {
     console.log("err", err);
   }
 });
-
-// 静态资源处理
-app.use(express.static(path.resolve("dist/client")));
 
 app.listen(3000, () => {
   console.log("http://localhost:3000");
