@@ -2,8 +2,6 @@ import { renderToString } from "vue/server-renderer";
 import { createApp } from "./main";
 
 export async function render(req) {
-  console.log("req", req);
-
   const { app, router } = createApp();
 
   // if (req.indexOf(".") === -1) {
