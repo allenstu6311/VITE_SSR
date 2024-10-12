@@ -4,6 +4,7 @@ import path, { resolve } from "path";
 import ViteCompressionPlugin from "vite-plugin-compression"
 
 export default defineConfig(({mode})=>{
+
   return {
     resolve: {
       alias: {

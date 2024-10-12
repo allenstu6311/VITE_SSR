@@ -36,7 +36,8 @@ app.get("*", async (req, res, next) => {
     const responseHtml = template.replace("<!--ssr-outlet-->", html);
     res.status(200).set({ "Content-Type": "text/html" }).send(responseHtml);
   } catch (err) {
-    console.log("err", err);
+    console.error("SSR 渲染錯誤:", err);
+    res.status(500).send("伺服器內部錯誤，請稍後再試");
   }
 });
 
