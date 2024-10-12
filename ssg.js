@@ -60,7 +60,6 @@ async function createFile(pathVal) {
     path.resolve("dist/client/index.html"),
     "utf-8"
   );
-  console.log("pathVal:", pathVal);
 
   const { html } = await render(pathVal);
   if (!html) {
