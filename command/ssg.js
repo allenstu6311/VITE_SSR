@@ -1,8 +1,12 @@
+/**
+ * 建立ssg檔案
+ */
 import readline from "readline";
-import { render } from "./dist/server/entry-server.js";
+// import { render } from "../dist/server/entry-server.js";
 import fs from "fs";
 import path from "path";
-import { routes as baseRoutes } from "./src/router/routes.js";
+import { routes as baseRoutes } from "../src/router/routes.js";
+import { getRenderFn } from "./utils.js";
 
 // 創建readline實體
 const rl = readline.createInterface({
@@ -60,7 +64,7 @@ async function createFile(pathVal) {
     path.resolve("dist/client/index.html"),
     "utf-8"
   );
-
+  const { render } = await getRenderFn()
   const { html } = await render(pathVal);
   if (!html) {
     console.log("查無此路徑");

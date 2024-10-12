@@ -7,7 +7,11 @@ import { fileURLToPath } from "node:url";
 import express from "express";
 import { createServer as createViteServer } from "vite";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// import.meta.url => file:///C:/Users/User/Desktop/test/VITE_SSR/command/server.js
+// fileURLToPath(import.meta.url) => C:\Users\User\Desktop\test\VITE_SSR\command\server.js
+// path.dirname(fileURLToPath(import.meta.url)) => C:\Users\User\Desktop\test\VITE_SSR\command
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));// 模擬commonJs __dirname
 
 async function createServer() {
   const app = express();
@@ -35,7 +39,7 @@ async function createServer() {
     try {
       // 1. 读取 index.html
       let template = fs.readFileSync(
-        path.resolve(__dirname, "index.html"),
+        path.resolve("./index.html"),
         "utf-8"
       );
 

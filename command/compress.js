@@ -15,7 +15,7 @@ const gunzip = promisify(zlib.gunzip);
 
 // 動態解壓並載入模組
 async function loadEntryServer() {
-  const gzFilePath = path.resolve("./dist/server/entry-server.js.gz");
+  const gzFilePath = path.resolve("dist/server/entry-server.js.gz");
 
   if (!fs.existsSync(gzFilePath)) {
     throw new Error("找不到 entry-server.js.gz 檔案");

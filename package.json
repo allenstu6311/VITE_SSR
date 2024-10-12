@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:ssr": "node server",
-    "preview": "vite preview",
+    "dev:ssr": "node command/server",
     "build": "vite build",
     "build:ssr": "vite build --ssrManifest --outDir dist/client && vite build --ssr src/entry-server.js --outDir dist/server",
-    "build:compress":"vite build --mode compress"
+    "build:ssg": "node command/ssg",
+    "build:compress":"vite build --ssrManifest --outDir dist/client && vite build --ssr src/entry-server.js --outDir dist/server --mode compress",
+    "preview": "vite preview",
+    "preview:ssr": "node command/ssr",
+    "preview:compress": "node command/compress"
   },
   "dependencies": {
     "compression": "^1.7.4",
