@@ -2,25 +2,22 @@
 
 https://github.com/bluwy/create-vite-extra
 
-# SSR BUILD
+# SSR
 
-build:ssr
+npm run dev:ssr <br>
+npm run build:ssr <br>
+npm run preview:ssr
 
-# SSR DEV
-
-npm run dev:ssr
-
-# SPA DEV
+# SPA
 
 npm run dev
-
-# SSR TEST
-
-node ssr
+npm run build
 
 # SSG
 
-node ssg
+npm run  build:ssg
 
 # 壓縮後檔案測試(.gz)
-node compress
+
+npm run  build:compress
+npm run  preview:compress
