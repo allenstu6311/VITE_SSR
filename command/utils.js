@@ -1,7 +1,6 @@
 /**
  *  # 可嘗試模塊化以下方法
  *  1. 渲染html
- *  2. 判斷是否為.gz檔案
  */
 import { resolve } from "path";
 import fs from "fs";
