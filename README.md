@@ -10,7 +10,7 @@ npm run preview:ssr
 
 # SPA
 
-npm run dev
+npm run dev <br>
 npm run build
 
 # SSG
@@ -19,5 +19,5 @@ npm run  build:ssg
 
 # 壓縮後檔案測試(.gz)
 
-npm run  build:compress
+npm run  build:compress <br>
 npm run  preview:compress
