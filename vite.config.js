@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path, { resolve } from "path";
-import ViteCompressionPlugin from "vite-plugin-compression"
+import ViteCompressionPlugin from "vite-plugin-compression";
 
 export default defineConfig(({mode})=>{
 
@@ -9,8 +9,17 @@ export default defineConfig(({mode})=>{
     resolve: {
       alias: {
         "@": resolve(__dirname, "./src"),
+        crypto:'crypto-browserify',
+        buffer: 'buffer',
       },
     },
+    define:{
+      'process':{
+        version: process.version
+      },
+      'global': 'globalThis'
+    },
+    
     plugins: [
       vue(),
       // 壓縮模式

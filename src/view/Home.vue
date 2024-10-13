@@ -4,10 +4,11 @@
   <!-- <img src="../assets/vue.svg" alt="" /> -->
 </template>
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import vueSvg from "@/assets/vue.svg";
+// import crypto from "crypto"
 
-const pic = ref("vue");
+
 
 // const image = import.meta.glob("@/assets/**/*.svg");
 // console.log(image);

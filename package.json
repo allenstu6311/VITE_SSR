@@ -9,7 +9,7 @@
     "build": "vite build",
     "build:ssr": "vite build --ssrManifest --outDir dist/client && vite build --ssr src/entry-server.js --outDir dist/server",
     "build:ssg": "node command/ssg",
-    "build:compress":"vite build --ssrManifest --outDir dist/client --mode compress && vite build --ssr src/entry-server.js --outDir dist/server --mode compress",
+    "build:compress": "vite build --ssrManifest --outDir dist/client --mode compress && vite build --ssr src/entry-server.js --outDir dist/server --mode compress",
     "preview": "vite preview",
     "preview:ssr": "node command/ssr",
     "preview:compress": "node command/compress"
@@ -21,8 +21,11 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@rollup/plugin-commonjs": "^28.0.0",
     "@vitejs/plugin-vue": "^5.1.4",
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
     "fs-extra": "^11.2.0",
     "vite": "^5.4.8",
     "vite-plugin-compression": "^0.5.1",
