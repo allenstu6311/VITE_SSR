@@ -6,9 +6,12 @@
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import vueSvg from "@/assets/vue.svg";
-// import crypto from "crypto"
+// import { createHash } from "crypto";
 
-
+// onMounted(() => {
+//   const md5 = createHash("md5");
+//   console.log(md5);
+// });
 
 // const image = import.meta.glob("@/assets/**/*.svg");
 // console.log(image);
