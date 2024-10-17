@@ -1,11 +1,13 @@
 <template>
   <h1>Home</h1>
   <img :src="vueSvg" alt="" />
+  <img :src="bg" alt="" />
   <!-- <img src="../assets/vue.svg" alt="" /> -->
 </template>
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import vueSvg from "@/assets/vue.svg";
+import bg from "@/assets/image/bg.jpg";
 // import { createHash } from "crypto";
 
 // onMounted(() => {
