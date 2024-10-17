@@ -1,6 +1,7 @@
 # 參考網站
 
-https://github.com/bluwy/create-vite-extra
+//圖片壓縮
+https://github.com/vbenjs/vite-plugin-imagemin/blob/main/README.zh_CN.md
 
 # SSR
 
@@ -15,9 +16,9 @@ npm run build
 
 # SSG
 
-npm run  build:ssg
+npm run build:ssg
 
 # 壓縮後檔案測試(.gz)
 
-npm run  build:compress <br>
-npm run  preview:compress
+npm run build:compress <br>
+npm run preview:compress
