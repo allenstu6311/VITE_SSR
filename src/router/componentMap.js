@@ -5,6 +5,7 @@ import ex from "../view/trade/ex.vue";
 import co from "../view/trade/co.vue";
 import otc from "../view/trade/otc.vue";
 import notFound from "../view/404.vue";
+import upload from "../view/Upload.vue";
 
 const componentMap = {
   home: Home,
@@ -14,6 +15,7 @@ const componentMap = {
   co: co,
   otc: otc,
   404: notFound,
+  upload,
 };
 
 export default componentMap;

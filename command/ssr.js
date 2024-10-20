@@ -30,7 +30,9 @@ app.get("*", async (req, res, next) => {
       path.resolve("dist/client/index.html"),
       "utf-8"
     );
+    
     const { render } = await getRenderFn()
+    
     // 调用 `render(req.url)`，用当前请求的 URL 进行渲染
     const { html } = await render(req.url);
     const responseHtml = template.replace("<!--ssr-outlet-->", html);

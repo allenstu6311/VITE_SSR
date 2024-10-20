@@ -25,6 +25,7 @@ export  async function getRenderFn() {
   }
 
   const filePath = pathToFileURL(targetJs).href;
+    
   return import(filePath);
 }
 

@@ -6,7 +6,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
 import { createServer as createViteServer } from "vite";
-
+import bodyParser from 'body-parser';
+import multer from "multer";
 // import.meta.url => file:///C:/Users/User/Desktop/test/VITE_SSR/command/server.js
 // fileURLToPath(import.meta.url) => C:\Users\User\Desktop\test\VITE_SSR\command\server.js
 // path.dirname(fileURLToPath(import.meta.url)) => C:\Users\User\Desktop\test\VITE_SSR\command
@@ -14,7 +15,39 @@ import { createServer as createViteServer } from "vite";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));// 模擬commonJs __dirname
 
 async function createServer() {
+  const upload = multer({ dest: 'uploads/' });
   const app = express();
+  app.use(bodyParser.json());
+
+
+  app.post("/uploadFile",upload.single('file'),(req,res)=>{
+    console.log('req file',req.file);
+    console.log('req body',req.body);
+    const { fileName } = req.body
+    
+    const file = req.file;
+    const oldPath = req.file.path; // 當前圖片的路徑
+    
+    
+    const newPath = path.join('./image',fileName);
+
+    fs.renameSync(oldPath,newPath)
+    res.send("success")
+  });
+  
+  app.get("/preview",(req,res)=>{
+    const { index } = req.query;
+
+    const imagePath = path.join('./image');
+    fs.readdir(imagePath,(err,file)=>{
+      // console.log('file',file);
+      const result = path.resolve('./image',file[index]);
+      // console.log('result',result);
+      
+      res.sendFile(result)
+    })
+  })
+  // app.post("/upload")
 
   // 以中间件模式创建 Vite 应用，并将 appType 配置为 'custom'
   // 这将禁用 Vite 自身的 HTML 服务逻辑

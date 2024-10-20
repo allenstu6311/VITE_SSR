@@ -1,4 +1,5 @@
 import "./style.css";
+import "./assets/js/utils"
 import { createApp } from "./main";
 
 

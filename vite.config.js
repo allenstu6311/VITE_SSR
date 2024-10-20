@@ -4,38 +4,35 @@ import path, { resolve } from "path";
 import ViteCompressionPlugin from "vite-plugin-compression";
 // import commonjs from "@rollup/plugin-commonjs";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
-import viteLifecycle from "./src/plugins/viteLifecycle";
+// import viteLifecycle from "./src/plugins/viteLifecycle";
 import viteImagemin from "vite-plugin-imagemin";
 import viteFontminPlugin from "./src/plugins/viteFontminPlugin";
+
+process.browser = true,
+process.env.BASE_URL = '/'
 
 export default defineConfig(({ mode }) => {
   return {
     resolve: {
       alias: {
         "@": resolve(__dirname, "./src"),
-        // crypto: "crypto-browserify",
+        crypto: "crypto-browserify",
         // buffer: "buffer",
       },
     },
     define: {
-      process: {
-        version: process.version,
-        env: {
-          // NODE_DEBUG: false, // 手動設置 NODE_DEBUG 為 false
-        },
-      },
+      process:process,
       global: "globalThis",
     },
-
     plugins: [
       vue(),
       // commonjs(),
-      nodePolyfills({
-        crypto: "crypto",
-        buffer: "buffer",
-      }),
+      // nodePolyfills({
+      //   crypto: "crypto",
+      //   buffer: "buffer",
+      // }),
       // viteLifecycle(),
-      viteFontminPlugin(),
+      // viteFontminPlugin(),
       // 壓縮模式
       mode === "compress" &&
         ViteCompressionPlugin({
@@ -74,4 +71,5 @@ export default defineConfig(({ mode }) => {
       noExternal: process.env.NODE_ENV === "production" ? true : [],
     },
   };
+
 });
