@@ -68,8 +68,21 @@ export default defineConfig(({ mode }) => {
     ],
     ssr: {
       // 是否打包ssr所有的依賴
-      noExternal: process.env.NODE_ENV === "production" ? true : [],
+      noExternal: process.env.NODE_ENV === "production" ? true : ['naive-ui','vueuc'],
     },
+    // ssgOptions: {
+    //   async onBeforePageRender(_, __, appCtx) {
+    //     const { collect } = setup(appCtx.app)
+    //     ;(appCtx).__collectStyle = collect
+    //     return undefined
+    //   },
+    //   async onPageRendered(_, renderedHTML, appCtx) {
+    //     return renderedHTML.replace(
+    //       /<\/head>/,
+    //       `${(appCtx).__collectStyle()}</head>`
+    //     )
+    //   }
+    // }
   };
 
 });

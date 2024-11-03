@@ -15,14 +15,18 @@
     "preview:compress": "node command/compress"
   },
   "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.14",
     "axios": "^1.7.7",
     "compression": "^1.7.4",
     "express": "^4.21.0",
     "vue": "^3.5.10",
-    "vue-router": "^4.4.5"
+    "vue-cropperjs": "^5.0.0",
+    "vue-router": "^4.4.5",
+    "vueuc": "^0.4.64"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.0",
+    "@vicons/ionicons5": "^0.12.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "body-parser": "^1.20.3",
     "buffer": "^6.0.3",
@@ -30,6 +34,8 @@
     "fontmin": "^1.1.0",
     "fs-extra": "^11.2.0",
     "multer": "^1.4.5-lts.1",
+    "naive-ui": "^2.40.1",
+    "sass-embedded": "^1.80.6",
     "vite": "^5.4.8",
     "vite-plugin-commonjs": "^0.10.3",
     "vite-plugin-compression": "^0.5.1",

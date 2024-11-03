@@ -21,14 +21,9 @@ async function createServer() {
 
 
   app.post("/uploadFile",upload.single('file'),(req,res)=>{
-    console.log('req file',req.file);
-    console.log('req body',req.body);
     const { fileName } = req.body
     
-    const file = req.file;
     const oldPath = req.file.path; // 當前圖片的路徑
-    
-    
     const newPath = path.join('./image',fileName);
 
     fs.renameSync(oldPath,newPath)
@@ -40,10 +35,7 @@ async function createServer() {
 
     const imagePath = path.join('./image');
     fs.readdir(imagePath,(err,file)=>{
-      // console.log('file',file);
       const result = path.resolve('./image',file[index]);
-      // console.log('result',result);
-      
       res.sendFile(result)
     })
   })
