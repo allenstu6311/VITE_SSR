@@ -9,8 +9,8 @@ import { createServer as createViteServer } from "vite";
 import bodyParser from 'body-parser';
 import multer from "multer";
 // import.meta.url => file:///C:/Users/User/Desktop/test/VITE_SSR/command/server.js
-// fileURLToPath(import.meta.url) => C:\Users\User\Desktop\test\VITE_SSR\command\server.js
-// path.dirname(fileURLToPath(import.meta.url)) => C:\Users\User\Desktop\test\VITE_SSR\command
+// fileURLToPath(import.meta.url) => C:\Users\User\Desktop\test\VITE_SSR\command\server.js(去掉 file:///)
+// path.dirname(fileURLToPath(import.meta.url)) => C:\Users\User\Desktop\test\VITE_SSR\command (去掉檔案名稱 server.js)
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));// 模擬commonJs __dirname
 
