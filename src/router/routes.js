@@ -1,5 +1,10 @@
+
 /**
  * 需要在componentMap註冊組件
+ * 
+ * 因為需要能夠支援ssg產出靜態檔案，
+ * 所以不能import vue檔案，NodeJS
+ * 不能解析.vue檔案
  */
 export const routes = [
   { path: "/", name: "home" },

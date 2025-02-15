@@ -1,6 +1,6 @@
 <template>
   <div class="cropper-box" v-if="isClient">
-    <!-- 上船區 -->
+    <!-- 上傳區 -->
     <div class="" v-show="!file">
       <n-upload @change="fileChange" directory-dnd :max="1" ref="uploadTool">
         <n-upload-dragger>
