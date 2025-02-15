@@ -15,8 +15,8 @@ export  async function getRenderFn() {
   if (fs.existsSync(compressJs)) {
     const gzData = fs.readFileSync(compressJs);
     const buffer = zlib.gunzipSync(gzData);
+    const tempFilePath = resolve("./dist/server/entry-srever.temp.js"); //壓縮後的檔名
 
-    const tempFilePath = resolve("./dist/server/entry-server.temp.js");
     fs.writeFileSync(tempFilePath, buffer);
     targetJs = tempFilePath;
 

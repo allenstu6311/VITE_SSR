@@ -18,7 +18,7 @@ npm run build
 
 npm run build:ssg
 
-# 壓縮後檔案測試(.gz)
+# 壓縮後檔案測試(.gz) 會打包兩份 SSR/SPA
 
 npm run build:compress <br>
 npm run preview:compress
